@@ -7,8 +7,8 @@ Author URI: https://onlineada.com/
 Author: Ability, Inc
 Tested up to: 6.6
 Requires at least: 4.6
-Stable tag: 2.0.6
-Version: 2.0.6
+Stable tag: 2.0.7
+Version: 2.0.7
 Requires PHP: ^5.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html

@@ -1,6 +1,9 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+- [ 2.0.7 ] - 10/21/2024
+- updated flyout menu link
+
 - [ 2.0.6 ] - 9/6/2024
 - fixed tagging mistake
 

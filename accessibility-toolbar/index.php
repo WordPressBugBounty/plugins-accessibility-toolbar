@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       Web Accessibility with Max Access
  * Description:       The Future is Accessible
- * Version:           2.0.6
+ * Version:           2.0.7
  * Author:            Ability, Inc.
  * Author URI:        https://maxaccess.io/
  * License:           GPLv2 or later
@@ -175,7 +175,7 @@ function redirect_to_pricing_page(){
 }
 
 function redirect_to_setup_page(){
-    wp_redirect( 'https://maxaccess.io/setup' );
+    wp_redirect( 'https://maxaccess.io/setup/wordpress/' );
 }
 
 function redirect_to_get_certified_page(){
