@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       Web Accessibility with Max Access
  * Description:       The Future is Accessible
- * Version:           2.0.7
+ * Version:           2.0.8
  * Author:            Ability, Inc.
  * Author URI:        https://maxaccess.io/
  * License:           GPLv2 or later
@@ -235,7 +235,7 @@ function inject_toolbar_scripts()
         $key = get_option('toolbar_license_key');
 
         //api.maxaccess.io
-        $script = 'var oada_ma_license_key="'. $key .'";var oada_ma_license_url="https://api.maxaccess.io/scripts/toolbar/'. $key .'";(function(s,o,g){a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.src=g;a.setAttribute("async","");a.setAttribute("type","text/javascript");a.setAttribute("crossorigin","anonymous");m.parentNode.insertBefore(a,m)})(document,"script",oada_ma_license_url+oada_ma_license_key);';
+        $script = 'var oada_ma_license_key="'. $key .'";var oada_ma_license_url="https://api.maxaccess.io/scripts/toolbar/'. $key .'";(function(s,o,g){a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.src=g;a.setAttribute("defer","");a.setAttribute("type","text/javascript");a.setAttribute("crossorigin","anonymous");m.parentNode.insertBefore(a,m)})(document,"script",oada_ma_license_url+oada_ma_license_key);';
 
         wp_register_script('ma_toolbar_script', '');
         wp_enqueue_script('ma_toolbar_script', '', null, NULL, false);

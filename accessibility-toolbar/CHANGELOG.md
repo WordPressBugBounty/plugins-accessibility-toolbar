@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+- [ 2.0.8 ] - 2/4/2025
+- applied 'defer' script embed toolbar optimization
+- added new toolbar ui class
+- tested up to Wordpress 6.7.1
+
 - [ 2.0.7 ] - 10/21/2024
 - updated flyout menu link
 

@@ -5,10 +5,10 @@ Plugin URI: https://onlineada.com/
 Tags: accessibility, accessibility compliance, wcag, WordPress accessibility, accessibility toolbar, web accessibility
 Author URI: https://onlineada.com/
 Author: Ability, Inc
-Tested up to: 6.6
+Tested up to: 6.7.1
 Requires at least: 4.6
-Stable tag: 2.0.7
-Version: 2.0.7
+Stable tag: 2.0.8
+Version: 2.0.8
 Requires PHP: ^5.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
