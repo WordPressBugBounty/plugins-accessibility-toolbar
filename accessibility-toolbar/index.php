@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       Web Accessibility with Max Access
  * Description:       The Future is Accessible
- * Version:           2.0.8
+ * Version:           2.0.9
  * Author:            Ability, Inc.
  * Author URI:        https://maxaccess.io/
  * License:           GPLv2 or later
@@ -103,65 +103,61 @@ function register_ma_plugin_menu(){
         'Web Accessibility',
         'Web Accessibility',
         'manage_options',
-        '/max-access-plugin-menu',
+        'max-access-plugin-menu',
         'display_ma_plugin_menu',
         'dashicons-admin-generic',
         null
     );
 
     add_submenu_page(
-        '/max-access-plugin-menu',
+        'max-access-plugin-menu',
         'General Settings',
         'General Settings',
         'manage_options',
-        '/admin.php?page=max-access-plugin-menu',
+        'max-access-plugin-menu',
         null
     );
 
     add_submenu_page(
-        '/max-access-plugin-menu',
+        'max-access-plugin-menu',
         'Setup Instructions',
         'Setup Instructions',
         'manage_options',
-        '/admin.php?page=max-access-plugin-menu/setup',
+        'max-access-plugin-menu/setup',
         'redirect_to_setup_page',
         2
     );
 
     add_submenu_page(
-        '/max-access-plugin-menu',
+        'max-access-plugin-menu',
         'Pro Features',
         'Pro Features',
         'manage_options',
-        '/admin.php?page=max-access-plugin-menu/features',
+        'max-access-plugin-menu/features',
         'redirect_to_pro_features_page',
         3
     );
 
     add_submenu_page(
-        '/max-access-plugin-menu',
+        'max-access-plugin-menu',
         'Pricing',
         'Pricing',
         'manage_options',
-        '/admin.php?page=max-access-plugin-menu/pricing',
+        'max-access-plugin-menu/pricing',
         'redirect_to_pricing_page',
         4
     );
 
 
     add_submenu_page(
-        '/max-access-plugin-menu',
+        'max-access-plugin-menu',
         'Get Certified',
         'Get Certified',
         'manage_options',
-        '/admin.php?page=max-access-plugin-menu/get-certified',
+        'max-access-plugin-menu/get-certified',
         'redirect_to_get_certified_page',
         5
     );
-
-    //remove the redundant top level link...
-    global $submenu;
-    unset($submenu['max-access-plugin-menu'][0]);
 };
 
 function redirect_to_pro_features_page(){

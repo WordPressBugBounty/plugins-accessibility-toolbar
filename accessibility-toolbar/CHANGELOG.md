@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+- [ 2.0.9 ] - 4/24/2025
+- fixed template router bug causing conflicts with other plugins
+- fixed submenu hrefs
+- tested up to Wordpress 6.8
+
 - [ 2.0.8 ] - 2/4/2025
 - applied 'defer' script embed toolbar optimization
 - added new toolbar ui class
