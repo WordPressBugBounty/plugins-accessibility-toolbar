@@ -1,5 +1,7 @@
 # Changelog
 All notable changes to this project will be documented in this file.
+- [ 2.1.0 ] - 8/25/2025
+-Fixed CSRF vulnerability: https://patchstack.com/database/wordpress/plugin/accessibility-toolbar/vulnerability/wordpress-web-accessibility-with-max-access-2-0-9-cross-site-request-forgery-csrf-vulnerability?_a_id=473
 
 - [ 2.0.9 ] - 4/24/2025
 - fixed template router bug causing conflicts with other plugins

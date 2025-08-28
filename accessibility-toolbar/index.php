@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       Web Accessibility with Max Access
  * Description:       The Future is Accessible
- * Version:           2.0.9
+ * Version:           2.1.0
  * Author:            Ability, Inc.
  * Author URI:        https://maxaccess.io/
  * License:           GPLv2 or later
@@ -18,7 +18,7 @@ if (!defined('ABSPATH')) {
 
 define('MA_DIR', __DIR__);
 
-define('MA_VERSION', '2.0.0');
+define('MA_VERSION', '2.1.0');
 
 define('MA_MODE', 'prod');
 
@@ -31,12 +31,15 @@ define('MA_NAMESPACE', __NAMESPACE__);
 
 function loadScripts()
 {
-    wp_register_script('accessibility-toolbar', '/wp-content/plugins/accessibility-toolbar/src/admin.js');
-    wp_localize_script('accessibility-toolbar', 'ajax_object', array('ajax_url' => admin_url('admin-ajax.php')));
-    wp_enqueue_script('accessibility-toolbar', '/wp-content/plugins/accessibility-toolbar/src/admin.js');
+    wp_register_script('accessibility-toolbar', plugins_url('src/admin.js', __FILE__), [], MA_VERSION, false);
+    wp_localize_script('accessibility-toolbar', 'ajax_object', array(
+        'ajax_url' => admin_url('admin-ajax.php'),
+        'nonce'    => wp_create_nonce('ma_get_licenses_nonce')
+    ));
+    wp_enqueue_script('accessibility-toolbar');
 
-    wp_register_style('accessibility-toolbar-styles','/wp-content/plugins/accessibility-toolbar/src/style.css');
-    wp_enqueue_style('accessibility-toolbar-styles', '/wp-content/plugins/accessibility-toolbar/src/style.css');
+    wp_register_style('accessibility-toolbar-styles', plugins_url('src/style.css', __FILE__), [], MA_VERSION);
+    wp_enqueue_style('accessibility-toolbar-styles');
 }
 
 add_action('admin_enqueue_scripts', 'loadScripts');
@@ -191,13 +194,19 @@ add_action('wp_ajax_get_licenses', 'get_licenses');
 function get_licenses(){
     $ch = curl_init();
 
+    check_ajax_referer('ma_get_licenses_nonce', 'nonce');
+
+    if ( ! current_user_can('manage_options') ) {
+        wp_send_json_error('You do not have sufficient permissions to perform this action.', 403);
+    }
+
     if(!defined('OADA_ACCOUNTS_URL')) {
         define('OADA_ACCOUNTS_URL', 'https://accounts.onlineada.com');
     }
 
-    $key = $_GET['license_key'] == 'init' ? get_option('toolbar_license_key') : $_GET['license_key'];
+    $license_key_input = isset($_GET['license_key']) && $_GET['license_key'] !== 'init' ? sanitize_text_field(wp_unslash($_GET['license_key'])) : get_option('toolbar_license_key');
 
-    curl_setopt($ch, CURLOPT_URL, OADA_ACCOUNTS_URL . '/api/ada-toolbar-check/'. $key);
+    curl_setopt($ch, CURLOPT_URL, OADA_ACCOUNTS_URL . '/api/ada-toolbar-check/'. $license_key_input);
     curl_setopt($ch, CURLOPT_HTTPHEADER, array('Accept: application/json'));
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
